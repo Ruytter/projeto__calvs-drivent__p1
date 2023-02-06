@@ -12,7 +12,7 @@
     "migration:generate": "npm run dev:load-envs prisma migrate dev",
     "lint": "eslint .",
     "lint:staged": "lint-staged",
-    "test": "NODE_ENV=test jest --passWithNoTests --runInBand",
+    "test": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand",
     "test:migration:run": "npm run test:load-envs prisma migrate deploy",
     "test:migration:generate": "npm run test:load-envs prisma migrate dev",
     "test:watch": "jest --watch --passWithNoTests --runInBand",
@@ -22,7 +22,7 @@
     "dev:migration:run": "npm run dev:load-envs prisma migrate deploy",
     "dev:migration:generate": "npm run dev:load-envs prisma migrate dev",
     "dev:seed": "npm run dev:load-envs prisma db seed",
-    "dev": "NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts"
+    "dev": "cross-env NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts"
   },
   "keywords": [
     "driven.t",
@@ -49,6 +49,7 @@
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
+    "cross-env": "^7.0.3",
     "dotenv-cli": "^5.1.0",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
@@ -62,7 +63,7 @@
     "lint-staged": "^12.4.1",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
-    "prisma": "^4.9.0",
+    "prisma": "^3.14.0",
     "supertest": "^6.2.3",
     "ts-jest": "^26.5.5",
     "ts-node": "^10.7.0",
@@ -73,7 +74,7 @@
   },
   "dependencies": {
     "@brazilian-utils/brazilian-utils": "^1.0.0-rc.12",
-    "@prisma/client": "^4.9.0",
+    "@prisma/client": "^3.14.0",
     "@types/axios": "^0.14.0",
     "axios": "^1.1.3",
     "bcrypt": "^5.0.1",
